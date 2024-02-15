@@ -34,60 +34,84 @@
 </style>
 </head>
 <body>
-<div class="coupon" onclick="this.style.display='none'">
+
+<div class="coupon" id="coupon1">
     <h3>💖 Valentine's Day Coupon 💖</h3>
     <p>Test!</p>
 </div>
 
-<div class="coupon" onclick="this.style.display='none'">
+<div class="coupon" id="coupon2">
     <h3>💖 Valentine's Day Coupon 💖</h3>
     <p>Romantic trip of my choice!</p>
 </div>
 
-<div class="coupon" onclick="this.style.display='none'">
+<div class="coupon" id="coupon3">
     <h3>💖 Valentine's Day Coupon 💖</h3>
     <p>My choice of movie in cinema!</p>
 </div>
 
-<div class="coupon" onclick="this.style.display='none'">
+<div class="coupon" id="coupon4">
     <h3>💖 Valentine's Day Coupon 💖</h3>
     <p>Just dance!</p>
 </div>
 
-<div class="coupon" onclick="this.style.display='none'">
+<div class="coupon" id="coupon5">
     <h3>💖 Valentine's Day Coupon 💖</h3>
     <p>A dinner date of my choice!</p>
 </div>
 
-<div class="coupon" onclick="this.style.display='none'">
+<div class="coupon" id="coupon6">
     <h3>💖 Valentine's Day Coupon 💖</h3>
     <p>Relaxing massage!</p>
 </div>
 
-<div class="coupon" onclick="this.style.display='none'">
+<div class="coupon" id="coupon7">
     <h3>💖 Valentine's Day Coupon 💖</h3>
     <p>Party!!!!</p>
 </div>
 
-<div class="coupon" onclick="this.style.display='none'">
+<div class="coupon" id="coupon8">
     <h3>💖 Valentine's Day Coupon 💖</h3>
     <p>Pakal caffe!</p>
 </div>
 
-<div class="coupon" onclick="this.style.display='none'">
+<div class="coupon" id="coupon9">
     <h3>💖 Valentine's Day Coupon 💖</h3>
     <p>Delicous Breakfast!</p>
 </div>
 
-<div class="coupon" onclick="this.style.display='none'">
+<div class="coupon" id="coupon10">
     <h3>💖 Valentine's Day Coupon 💖</h3>
     <p>My choice!</p>
 </div>
 
-<div class="coupon" onclick="this.style.display='none'">
+<div class="coupon" id="coupon11">
     <h3>💘 Valentine's Day Special 💘</h3>
     <p>Nimnumnum!</p>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Loop through each coupon and add event listener
+        for (let i = 1; i <= 11; i++) {
+            const couponId = "coupon" + i;
+            const coupon = document.getElementById(couponId);
+            
+            // Check if the coupon has been clicked before
+            if (localStorage.getItem(couponId + "Clicked")) {
+                coupon.style.display = "none";
+            }
+            
+            // Add click event listener to the coupon
+            coupon.addEventListener("click", function() {
+                // Hide the coupon
+                coupon.style.display = "none";
+                // Store in localStorage that the coupon has been clicked
+                localStorage.setItem(couponId + "Clicked", true);
+            });
+        }
+    });
+</script>
 
 </body>
 </html>
